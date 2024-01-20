@@ -5,6 +5,10 @@ html {
   font-family: 'Oswald', sans-serif;
 
 }
+h1 {
+  font-size: 5rem;
+  text-align: center;
+}
 span{
   color:#e9c428 ;
 }
@@ -26,9 +30,59 @@ input{
 .form-row input {
   flex: 1;
 }
-.form-row label, .form-row #submit-btn {
+.form-row label{
   padding: .5rem;
+  font-size: 1.5rem;
 }
+.top-text, .bottom-text{
+  position: absolute;
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: whitesmoke;
+  text-shadow: 0px 0px 2px black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.top-text {
+  top: 10%;
+  left: 30%;
+}
+.bottom-text {
+  top: 80%;
+  left:30%
+}
+#section-memes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.img-container{
+  position: relative;
+  margin: 1rem;
+  padding: 1rem;
+}
+.meme-img {
+width: 400px;
+height: 400px;
+border-radius: .5rem;
+object-fit: cover;
+opacity: 1;
+}
+.meme-img:hover{
+  opacity: 0.5;
+}
+
 #submit-btn{
-  flex-basis: 1;
+  padding: .3rem 1.5rem;
+  background-color: #e9c428;
+  color: whitesmoke;
+  border: .1rem solid #e9c428;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+}
+#submit-btn:hover{
+  background-color: whitesmoke;
+  color: #e9c428;
+  cursor: pointer;
 }
