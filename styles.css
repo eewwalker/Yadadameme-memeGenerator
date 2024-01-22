@@ -12,6 +12,13 @@ html {
 h1 {
   font-size: 7rem;
   text-align: center;
+  margin-bottom: 0;
+}
+p{
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  text-transform: uppercase;
 }
 span{
   color:#e9c428 ;
