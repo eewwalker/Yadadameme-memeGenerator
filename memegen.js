@@ -1,36 +1,59 @@
+
+/* HTML ELEMENTS SELECTORS */
+
 const imgUrl = document.querySelector('#img-url');
 const topText = document.querySelector('#top-text');
 const bottomText = document.querySelector('#bottom-text');
 const submitBtn = document.querySelector('#submit-btn');
-const memeSection = document.querySelector('#section-memes');
+const memeResults = document.querySelector('#meme-results');
 
-submitBtn.addEventListener('click', createMeme);
+/* EVENT LISTENERS */
+submitBtn.addEventListener('click', displayMeme);
 
-function createMeme(e) {
+/* FUNCTIONS */
+
+function displayMeme(e) {
   e.preventDefault();
   if (!imgUrl.value || (!topText.value && !bottomText.value)) {
     alert('Please enter URL and at least one text field!');
     return;
   }
-  const imgContainer = document.createElement('div');
+  const meme = createMeme();
+  memeResults.appendChild(meme);
+  clearInputs(imgUrl, topText, bottomText);
+}
+
+
+function createMeme() {
+  const memeContainer = document.createElement('div');
+  memeContainer.classList.add('meme-container');
+
   const memeImg = document.createElement('img');
-  const topTextDiv = document.createElement('div');
-  const bottomTextDiv = document.createElement('div');
-
-  topTextDiv.appendChild(document.createTextNode(topText.value));
-  bottomTextDiv.appendChild(document.createTextNode(bottomText.value));
-
   memeImg.setAttribute('src', imgUrl.value);
   memeImg.classList.add('meme-img');
 
-  imgContainer.classList.add('img-container');
+  const topTextDiv = document.createElement('div');
+  const bottomTextDiv = document.createElement('div');
+  topTextDiv.appendChild(document.createTextNode(topText.value));
+  bottomTextDiv.appendChild(document.createTextNode(bottomText.value));
   topTextDiv.classList.add('top-text');
   bottomTextDiv.classList.add('bottom-text');
 
-  imgContainer.appendChild(topTextDiv);
-  imgContainer.appendChild(bottomTextDiv);
-  imgContainer.appendChild(memeImg);
-  memeSection.appendChild(imgContainer);
+  const deleteBtn = document.createElement('button');
+  deleteBtn.appendChild(document.createTextNode('X'));
+  deleteBtn.classList.add('delete-btn');
+
+  memeContainer.append(memeImg, topTextDiv, bottomTextDiv, deleteBtn);
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.target.parentElement.remove();
+  });
+
+  return memeContainer;
+
+}
+
+function clearInputs(imgUrl, topText, bottomText) {
   imgUrl.value = '';
   topText.value = '';
   bottomText.value = '';
