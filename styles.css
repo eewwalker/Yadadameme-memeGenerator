@@ -23,6 +23,20 @@ p{
 span{
   color:#e9c428 ;
 }
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#macdre{
+  width: 110px;
+  height: 100px;
+  margin-top: 50px;
+}
+#macdre img{
+  width: 100%;
+  opacity: 70%;
+}
 
 /* FORM SECTION */
 
